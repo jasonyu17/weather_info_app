@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 
-
 void main() {
   runApp(MyApp());
 }
-
 
 class MyApp extends StatelessWidget {
   @override
@@ -18,31 +16,25 @@ class MyApp extends StatelessWidget {
   }
 }
 
-
 class _TabsNonScrollableDemo extends StatefulWidget {
   @override
   __TabsNonScrollableDemoState createState() => __TabsNonScrollableDemoState();
 }
 
-
 class __TabsNonScrollableDemoState extends State<_TabsNonScrollableDemo>
     with SingleTickerProviderStateMixin, RestorationMixin {
   late TabController _tabController;
 
-
   final RestorableInt tabIndex = RestorableInt(0);
 
-
   @override
-  String get restorationId => 'tab_non_scrollable_demo';
-
+  String get restorationId => 'Weather Info App';
 
   @override
   void restoreState(RestorationBucket? oldBucket, bool initialRestore) {
     registerForRestoration(tabIndex, 'tab_index');
     _tabController.index = tabIndex.value;
   }
-
 
   @override
   void initState() {
@@ -59,14 +51,12 @@ class __TabsNonScrollableDemoState extends State<_TabsNonScrollableDemo>
     });
   }
 
-
   @override
   void dispose() {
     _tabController.dispose();
     tabIndex.dispose();
     super.dispose();
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -79,8 +69,7 @@ class __TabsNonScrollableDemoState extends State<_TabsNonScrollableDemo>
       Colors.purple.shade100,
     ];
 
-
-     return Scaffold(
+    return Scaffold(
       appBar: AppBar(
         title: Text('Customized Tabs'),
         bottom: TabBar(
